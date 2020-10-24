@@ -49,7 +49,8 @@ INSERT INTO address_book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
 #### COUNT By State
 ``` SELECT COUNT(State) From Address_Book;```
 
-
+### UC-8 Retrieve Entries Sorted Alphabetically
+` SELECT * FROM address_book WHERE city='Hyderabad' ORDER BY firstName;`
 
 
 
