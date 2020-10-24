@@ -34,3 +34,7 @@ INSERT INTO address_book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
  ```
  ####  Show Updated Contact
  ```SELECT * FROM Address_Book Where FirstName='Premchand';```
+### UC-5 Delete Contact Using Person Name
+``` DELETE FROM Address_Book Where FirstName='Premchand';```
+#### View AddressBook
+``` SELECT * FROM Address_Book;```
