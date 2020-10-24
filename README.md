@@ -68,3 +68,10 @@ UPDATE address_book set AddressBookName='Personal' where firstName='Premchand' o
 ```SELECT * FROM address_book;```
 ### UC-10 Count of Persons by type
 ``` SELECT type,COUNT(type) FROM Address_Book GROUP BY type;```
+### UC-11 Add Person to Friend and Family
+```INSERT INTO address_book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email,Type,AddressBookName) VALUES
+    -> ('Chaitanya','Rangu','Tadepalligudem','WestGodavari','AndhraPradesh',531106,901417141,'chaitanyarangu@gmail.com','Friends','Personal'),
+    -> ('Suryanarayana','Allu','Tuni','EastGodavari','AndhraPradesh',533401,949361331,'suryam_allu@gmail.com','Family','Personal');
+```
+#### Show Updated Table
+``` SELECT * FROM Address_Book;```
