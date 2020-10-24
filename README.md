@@ -66,4 +66,5 @@ UPDATE address_book set AddressBookName='Personal' where firstName='Premchand' o
 ```
 #### View address book
 ```SELECT * FROM address_book;```
-
+### UC-10 Count of Persons by type
+``` SELECT type,COUNT(type) FROM Address_Book GROUP BY type;```
