@@ -38,3 +38,14 @@ INSERT INTO address_book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
 ``` DELETE FROM Address_Book Where FirstName='Premchand';```
 #### View AddressBook
 ``` SELECT * FROM Address_Book;```
+### UC-6 Retrieve Persons By State or City
+#### By City
+``` SELECT * FROM Address_Book Where city = 'Hyderabad';```
+#### By State
+``` SELECT * FROM Address_Book Where State='Telangana';```
+
+
+
+
+
+
