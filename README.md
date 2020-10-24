@@ -43,6 +43,11 @@ INSERT INTO address_book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
 ``` SELECT * FROM Address_Book Where city = 'Hyderabad';```
 #### By State
 ``` SELECT * FROM Address_Book Where State='Telangana';```
+### UC-7 Count By State or City
+#### COUNT By City
+```SELECT COUNT(City) From Address_Book;```
+#### COUNT By State
+``` SELECT COUNT(State) From Address_Book;```
 
 
 
