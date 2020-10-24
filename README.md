@@ -28,3 +28,9 @@ INSERT INTO address_book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
  ```
  #### Show the entries
  ` SELECT * FROM Address_Book;`
+ ### UC-4 Ability to Edit Contact Using Person Name
+ ```
+ UPDATE Address_Book SET PhoneNumber=949478262 WHERE FirstName='Premchand';
+ ```
+ ####  Show Updated Contact
+ ```SELECT * FROM Address_Book Where FirstName='Premchand';```
