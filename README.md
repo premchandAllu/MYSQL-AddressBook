@@ -52,6 +52,18 @@ INSERT INTO address_book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
 ### UC-8 Retrieve Entries Sorted Alphabetically
 ` SELECT * FROM address_book WHERE city='Hyderabad' ORDER BY firstName;`
 
+### UC-9 Ability to Identify AddressBook With name and type
 
-
+#### Alter Table
+```
+ALTER table address_book add AddressBookName varchar(200) AFTER Email;
+ALTER table address_book add Type varchar(200) AFTER Email;
+UPDATE address_book set type='Family' where firstName='Premchand';
+UPDATE address_book set type='Friends' where firstName='BhanuChand';
+UPDATE address_book set type='Professional' where firstName='DevaHarsha';
+UPDATE address_book set AddressBookName='Casual' where firstName='DevaHarsha';
+UPDATE address_book set AddressBookName='Personal' where firstName='Premchand' or firstName='Bhanuchand';
+```
+#### View address book
+```SELECT * FROM address_book;```
 
