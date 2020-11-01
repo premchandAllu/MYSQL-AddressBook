@@ -75,3 +75,53 @@ UPDATE address_book set AddressBookName='Personal' where firstName='Premchand' o
 ```
 #### Show Updated Table
 ``` SELECT * FROM Address_Book;```
+### UC-13 Ensure Working of Retrieve Queries
+#### Drop table address_book
+```DROP TABLE address_book;```
+
+#### Creating table Address_Book_Dictionary
+```CREATE TABLE Address_Book_Dictionary
+    -> (
+    -> Address_Book_Name VARCHAR(200) NOT NULL PRIMARY KEY,
+    -> Address_Book_Type VARCHAR(150) NOT NULL
+    -> );
+ ```
+#### Creating table Contacts
+```CREATE TABLE contacts
+    -> (
+    -> firstName    varchar(150) NOT NULL,
+    -> lastName     varchar(150) NOT NULL,
+    -> Address_Book_Name VARCHAR(200) NOT NULL,
+    -> FOREIGN KEY (Address_Book_Name) REFERENCES Address_Book_Dictionary (Address_Book_Name),
+    -> Address      varchar(200) NOT NULL,
+    -> City         varchar(200) NOT NULL,
+    -> State        varchar(200) NOT NULL,
+    -> Zip          int(10)      NOT NULL,
+    -> Phone_Number int(15)      NOT NULL,
+    -> Email        varchar(300) NOT NULL,
+    -> PRIMARY KEY  (firstName,lastName)
+    -> );
+ ```
+#### Inserting records into Address_Book_Dictionary table
+```INSERT INTO Address_Book_Dictionary VALUES
+    -> ('Personal','Family'),
+    -> ('Corporate','Professional'),
+    -> ('Casual','Friends');
+```
+#### Inserting records into Contacts
+```INSERT INTO contacts VALUES
+    -> ('M S','Dhoni','Casual','Balaji nagar','Chennai','Tamil Nadu',500001,9440293758,'msdhoni@gmail.com'),
+    -> ('Virat','Kohli','Personal','Shanthi nagar','Bangalore','Karnataka',500050,9494118273,'vkohli@gmail.com'),
+    -> ('Rohit','Sharma','Corporate','Anderi','Mumbai','Maharashtra',500010,7207020464,'rohit@gmail.com');
+```    
+#### Ability to Retrieve Person belonging to a City or State
+```SELECT * FROM contacts WHERE City='Bangalore';
+SELECT * FROM contacts WHERE State='Maharashtra';
+Ability to understand the size of address book by City and State
+SELECT city,COUNT(city) FROM contacts GROUP BY city;
+SELECT state,COUNT(state) FROM contacts GROUP BY state;
+Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+SELECT * FROM contacts WHERE city='Chennai' ORDER BY firstName;
+Ability to get number of contact persons(count by type)
+SELECT a.Address_Book_Type,COUNT(a.Address_Book_Type) FROM Address_Book_Dictionary a LEFT JOIN contacts c ON c.Address_Book_Name=a.Address_Book_Name GROUP BY a.Address_Book_Type;
+```
